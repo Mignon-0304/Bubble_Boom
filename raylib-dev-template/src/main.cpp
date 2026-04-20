@@ -63,7 +63,7 @@ int main() {
             frames = 0;
         }
 
-        if(Bubble::restart()){
+        if(Bubble::restart() && player.getLives()!=0){
             for(int i=0;i<bubbles.size();i++) bubbles[i].turnLife(REBORN);
             if(timeLeft!=0) player.addScore();
             timeLeft = 6;
@@ -81,7 +81,7 @@ int main() {
                 }
             }
         }
-        if(player.getLives()==0){
+        if(player.getLives()==0 && frames==59){
             /*end of game idk I'll do it later*/
             state = DEAD;
         }
@@ -108,9 +108,10 @@ int main() {
         char Time[50];
         snprintf(Time, 50, "Timer: %d", timeLeft);
         string lives;
-        if(player.getLives()==3) lives = "Lives: ØØØ";
-        else if(player.getLives()==2) lives = "Lives: ØØ";
-        else lives = "Lives: Ø";
+        if(player.getLives()==3) lives = "Lives: -0-0-0-";
+        else if(player.getLives()==2) lives = "Lives: -0-0-#-";
+        else if(player.getLives()==1) lives = "Lives: -0-#-#-";
+        else lives = "Lives: -#-#-#";
         BeginShaderMode(sdfShader);
             DrawTextEx(fontDefault, msg, msg_position, msg_size, 0, BLACK);
             DrawTextEx(number, Score, num_position, num_size, 0, ORANGE);
@@ -127,7 +128,7 @@ int main() {
         end_position, msg_size, 0, BLACK);
         char FinalScore[50];
         snprintf(FinalScore, 50, "Final Score: %d", player.getScore());
-        DrawTextEx(number, FinalScore, fscore_position, msg_size, 0, BROWN);
+        DrawTextEx(number, FinalScore, fscore_position, num_size, 0, BROWN);
         EndShaderMode();
         break;
         }
