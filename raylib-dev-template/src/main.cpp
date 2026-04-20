@@ -45,6 +45,9 @@ int main() {
             }
             beginning = false;
         }
+        if(Bubble::restart()){
+            for(int i=0;i<5;i++) bubbles[i].turnLife(REBORN);
+        }
         for(int i=0;i<5;i++){
             if(bubbles[i].getLife()){
                 DrawCircleV(bubbles[i].getCenter(), 20.0, BLUE);
@@ -53,13 +56,13 @@ int main() {
         if(IsMouseButtonPressed(MOUSE_BUTTON_LEFT)){
             Vector2 mouse_vec = GetMousePosition();
             for(int i=0;i<5;i++){
+                if(!bubbles[i].getLife()) continue;
                 if(CheckCollisionPointCircle(mouse_vec, bubbles[i].getCenter(), 20.0)){
-                    bubbles[i].turnLife();
+                    bubbles[i].turnLife(KILL);
                     player.addScore();
                     int x = rand() % (WINDOW_WIDTH-39) + 20;
                     int y = rand() % (WINDOW_HEIGHT-39) + 20;
-                    Bubble temp(static_cast<float>(x), static_cast<float>(y));
-                    bubbles[i] = temp;
+                    bubbles[i].setCenter(static_cast<float>(x), static_cast<float>(y));
                 }
             }
         }
