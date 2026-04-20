@@ -17,6 +17,8 @@ enum Game_state {ALIVE, DEAD};
 
 int main() {
 
+    ChangeDirectory(GetApplicationDirectory());
+
     InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "First Raylib HORRIFYING");
     SetTargetFPS(60);
     SetRandomSeed(time(NULL));

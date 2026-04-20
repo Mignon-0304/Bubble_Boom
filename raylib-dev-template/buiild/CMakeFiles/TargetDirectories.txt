@@ -1,3 +1,0 @@
-/Users/mignon/Desktop/github/raylib/raylib-dev-template/buiild/CMakeFiles/OOP_Raylib_Lab.dir
-/Users/mignon/Desktop/github/raylib/raylib-dev-template/buiild/CMakeFiles/edit_cache.dir
-/Users/mignon/Desktop/github/raylib/raylib-dev-template/buiild/CMakeFiles/rebuild_cache.dir
