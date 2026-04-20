@@ -7,3 +7,9 @@ void Player::addScore(){
 int Player::getScore(){
     return score;
 }
+
+int Player::getLives(){return lives;}
+
+void Player::lessLives(){
+    lives--;
+}

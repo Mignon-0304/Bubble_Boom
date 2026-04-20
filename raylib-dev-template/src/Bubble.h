@@ -10,6 +10,7 @@ class Bubble{
     float centerX;
     float centerY;
     bool life = true;
+    friend void harder();
     static int survivor;
     public:
     void turnLife(bubble_do);
@@ -18,6 +19,7 @@ class Bubble{
     Vector2 getCenter();
     void setCenter(float x, float y);
     static bool restart();
+
 };
 
 #endif
